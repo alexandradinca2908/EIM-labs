@@ -20,7 +20,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="66dp" />
+        android:layout_height="30dp" />
 
     <EditText
         android:id="@+id/phoneNumber"
@@ -165,6 +165,18 @@
             android:maxHeight="50dp"
             android:scaleType="fitCenter"
             android:src="@drawable/closed" />
+
     </GridLayout>
+
+    <ImageButton
+        android:id="@+id/contactsManager"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@string/access_contacts_manager"
+        android:scaleType="fitCenter"
+        android:src="@drawable/contacts" />
 
 </LinearLayout>

@@ -103,6 +103,7 @@
             android:id="@+id/btn7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/_7"
             android:textStyle="bold" />
 
@@ -110,6 +111,7 @@
             android:id="@+id/btn8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/_8"
             android:textStyle="bold" />
 
@@ -117,6 +119,7 @@
             android:id="@+id/btn9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/_9"
             android:textStyle="bold" />
 
@@ -160,6 +163,19 @@
             android:maxHeight="50dp"
             android:scaleType="fitCenter"
             android:src="@drawable/call" />
+
+        <ImageButton
+            android:id="@+id/contactsManager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:contentDescription="@string/access_contacts_manager"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/contacts" />
 
         <ImageButton
             android:id="@+id/endCallBtn"

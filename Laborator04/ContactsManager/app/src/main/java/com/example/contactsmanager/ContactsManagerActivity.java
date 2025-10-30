@@ -1,5 +1,6 @@
 package com.example.contactsmanager;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class ContactsManagerActivity extends AppCompatActivity {
 
     boolean isVisible = false;
 
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_contacts_manager);
 
         //  Set edit text views
         nameEditText = findViewById(R.id.name);
@@ -69,7 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
         //  Set cancel button
         cancelButton = findViewById(R.id.cancel);
-        cancelButton.setOnClickListener(v -> finish());
+        cancelButton.setOnClickListener(v -> {
+            setResult(Activity.RESULT_CANCELED, new Intent());
+            finish();
+        });
 
         //  Set save button
         saveButton = findViewById(R.id.save);
@@ -121,7 +126,30 @@ public class MainActivity extends AppCompatActivity {
             }
 
             intent.putParcelableArrayListExtra(ContactsContract.Intents.Insert.DATA, contactData);
-            startActivity(intent);
+            startActivityForResult(intent, Constants.CONTACTS_MANAGER_REQUEST_CODE);
         });
+
+        //  Check intent and add phone number from PhoneDialler
+        Intent intent = getIntent();
+        if (intent != null) {
+            String phone = intent.getStringExtra("com.example.contactsmanager.PHONE_NUMBER_KEY");
+            if (phone != null) {
+                phoneEditText.setText(phone);
+            } else {
+                Toast.makeText(this, getResources().getString(R.string.phone_error), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        switch (requestCode) {
+            case Constants.CONTACTS_MANAGER_REQUEST_CODE:
+                setResult(resultCode, new Intent());
+                finish();
+                break;
+        }
     }
 }

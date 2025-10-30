@@ -17,4 +17,6 @@
     <string name="endcall_btn_description">Closes the app</string>
     <string name="phone_number_textbox_hint">Phone Number:</string>
     <string name="acceleration_default">Ox: 0.0 m/s²</string>
+    <string name="access_contacts_manager">Access contacts manager</string>
+    <string name="phone_error">ERROR: Not a valid phone number</string>
 </resources>

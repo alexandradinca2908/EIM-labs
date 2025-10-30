@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -106,12 +107,39 @@ public class PhoneDialerActivity extends AppCompatActivity
         Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
+
+        //  LAB 4 - CONTACTS MANAGER
+        ImageButton contactsManagerButton = findViewById(R.id.contactsManager);
+        contactsManagerButton.setOnClickListener(v -> {
+            String extractedNumber = phoneNumber.getText().toString();
+
+            if (!extractedNumber.isEmpty()) {
+                Intent intent = new Intent("com.example.contactsmanager.intent.action.ContactsManagerActivity");
+                intent.putExtra("com.example.contactsmanager.PHONE_NUMBER_KEY", extractedNumber);
+                startActivityForResult(intent, Constants.CONTACTS_MANAGER_REQUEST_CODE);
+            } else {
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.phone_error), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (requestCode == Constants.CONTACTS_MANAGER_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "Contact saved successfully", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Something went wrong. Couldn't save contact", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     private class Listener implements View.OnClickListener {
@@ -121,4 +149,5 @@ public class PhoneDialerActivity extends AppCompatActivity
             phoneNumber.append(b.getText());
         }
     }
+
 }
