@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b859926e-45f2-4d55-b077-fc7df66f1581" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../labtasks/ActivityLifecycleMonitor/app/src/main/java/ro/pub/systems/eim/lab02/activitylifecyclemonitor/graphicuserinterface/LifecycleMonitorActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../labtasks/ActivityLifecycleMonitor/app/src/main/java/ro/pub/systems/eim/lab02/activitylifecyclemonitor/graphicuserinterface/LifecycleMonitorActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../labtasks/ActivityLifecycleMonitor/app/src/main/res/layout/activity_lifecycle_monitor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../labtasks/ActivityLifecycleMonitor/app/src/main/res/layout/activity_lifecycle_monitor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Laborator05" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Laborator05" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,11 +27,23 @@
     </projectState>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "alexandradinca2908"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/alexandradinca2908/EIM-labs.git",
+    "accountId": "b0fa58e2-2671-481d-9c35-ead75cb34d06"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="346SWQPym6g14zMqFeGlufzKueo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -47,8 +58,8 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Android Studio Projects/Laborator02/solutions/ActivityLifecycleMonitor"
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Android Studio Projects/EIM-labs/Laborator02/solutions/ActivityLifecycleMonitor"
   }
 }]]></component>
   <component name="RunManager">
