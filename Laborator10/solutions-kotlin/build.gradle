@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 36
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "ro.pub.cs.systems.eim.lab10.siplinphone.solutions.kotlin"
+        minSdkVersion 26
+        targetSdkVersion 36
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    namespace 'ro.pub.cs.systems.eim.lab10.siplinphone'
+}
+
+repositories {
+    maven {
+        url "https://linphone.org/maven_repository"
+    }
+    flatDir {
+        dirs("libs")
+    }
+}
+
+configurations.all {
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+    resolutionStrategy {
+        def kotlin_version = rootProject.ext.kotlin_version
+        force "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    }
+}
+
+dependencies {
+    def kotlin_version = rootProject.ext.kotlin_version
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.17.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation(name:'linphone-sdk-android-5.3.96', ext:'aar')
+    implementation 'androidx.media:media:1.7.1'
+}
